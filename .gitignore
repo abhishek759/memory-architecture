@@ -1,0 +1,11 @@
+.venv/
+data/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.DS_Store
+results/cache/
+results/pilot/**/.lock
+~$*.docx

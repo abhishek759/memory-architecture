@@ -1,0 +1,386 @@
+{
+  "caution": "Exploratory pilot; ungraded answers are not accuracy results. Cached preparation costs are excluded from current-attempt totals; original costs remain in per-question memory metadata.",
+  "approaches": {
+    "raw_history": {
+      "expected": 14,
+      "saved": 14,
+      "successful": 14,
+      "status_counts": {
+        "ok": 14
+      },
+      "pending_ids": [],
+      "errors": {},
+      "accuracy": null,
+      "grading_status": "ungraded",
+      "measurements_successful_only": {
+        "input_tokens": {
+          "mean": 7059.785714285715,
+          "measured_n": 14
+        },
+        "output_tokens": {
+          "mean": 30.642857142857142,
+          "measured_n": 14
+        },
+        "answer_seconds": {
+          "mean": 61.01311229459576,
+          "measured_n": 14
+        },
+        "preparation_seconds": {
+          "mean": 0.1296933244198694,
+          "measured_n": 14
+        },
+        "total_seconds": {
+          "mean": 61.14285643748839,
+          "measured_n": 14
+        }
+      },
+      "current_attempt_costs": {
+        "index_embedding": {
+          "calls": 0,
+          "input_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "output_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "wall_seconds": {
+            "sum": null,
+            "measured_n": 0
+          }
+        },
+        "query_embedding": {
+          "calls": 0,
+          "input_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "output_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "wall_seconds": {
+            "sum": null,
+            "measured_n": 0
+          }
+        },
+        "summarization": {
+          "calls": 0,
+          "input_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "output_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "wall_seconds": {
+            "sum": null,
+            "measured_n": 0
+          }
+        },
+        "answer": {
+          "calls": 14,
+          "input_tokens": {
+            "sum": 98837,
+            "measured_n": 14
+          },
+          "output_tokens": {
+            "sum": 429,
+            "measured_n": 14
+          },
+          "wall_seconds": {
+            "sum": 854.1821443750523,
+            "measured_n": 14
+          }
+        }
+      },
+      "cache_hits": 0
+    },
+    "vector_retrieval": {
+      "expected": 14,
+      "saved": 14,
+      "successful": 14,
+      "status_counts": {
+        "ok": 14
+      },
+      "pending_ids": [],
+      "errors": {},
+      "accuracy": null,
+      "grading_status": "ungraded",
+      "measurements_successful_only": {
+        "input_tokens": {
+          "mean": 2541.8571428571427,
+          "measured_n": 14
+        },
+        "output_tokens": {
+          "mean": 26.714285714285715,
+          "measured_n": 14
+        },
+        "answer_seconds": {
+          "mean": 18.372509005995067,
+          "measured_n": 14
+        },
+        "preparation_seconds": {
+          "mean": 19.09322317250605,
+          "measured_n": 14
+        },
+        "total_seconds": {
+          "mean": 37.46575908622305,
+          "measured_n": 14
+        }
+      },
+      "current_attempt_costs": {
+        "index_embedding": {
+          "calls": 276,
+          "input_tokens": {
+            "sum": 1846030,
+            "measured_n": 276
+          },
+          "output_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "wall_seconds": {
+            "sum": 256.3391805050196,
+            "measured_n": 276
+          }
+        },
+        "query_embedding": {
+          "calls": 14,
+          "input_tokens": {
+            "sum": 380,
+            "measured_n": 14
+          },
+          "output_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "wall_seconds": {
+            "sum": 0.1722917939769104,
+            "measured_n": 14
+          }
+        },
+        "summarization": {
+          "calls": 0,
+          "input_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "output_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "wall_seconds": {
+            "sum": null,
+            "measured_n": 0
+          }
+        },
+        "answer": {
+          "calls": 14,
+          "input_tokens": {
+            "sum": 35586,
+            "measured_n": 14
+          },
+          "output_tokens": {
+            "sum": 374,
+            "measured_n": 14
+          },
+          "wall_seconds": {
+            "sum": 257.2139649168821,
+            "measured_n": 14
+          }
+        }
+      },
+      "cache_hits": 0
+    },
+    "running_summary": {
+      "expected": 14,
+      "saved": 3,
+      "successful": 2,
+      "status_counts": {
+        "ok": 2,
+        "running": 1
+      },
+      "pending_ids": [
+        "6aeb4375",
+        "4bc144e2",
+        "3fe836c9",
+        "28bcfaac",
+        "e3fc4d6e",
+        "09d032c9",
+        "95228167",
+        "36580ce8",
+        "caf9ead2",
+        "0db4c65d",
+        "0bc8ad93"
+      ],
+      "errors": {
+        "07741c44": null
+      },
+      "accuracy": null,
+      "grading_status": "ungraded",
+      "measurements_successful_only": {
+        "input_tokens": {
+          "mean": 607,
+          "measured_n": 2
+        },
+        "output_tokens": {
+          "mean": 8,
+          "measured_n": 2
+        },
+        "answer_seconds": {
+          "mean": 5.405743937473744,
+          "measured_n": 2
+        },
+        "preparation_seconds": {
+          "mean": 3232.324783937016,
+          "measured_n": 2
+        },
+        "total_seconds": {
+          "mean": 3237.730549041473,
+          "measured_n": 2
+        }
+      },
+      "current_attempt_costs": {
+        "index_embedding": {
+          "calls": 0,
+          "input_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "output_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "wall_seconds": {
+            "sum": null,
+            "measured_n": 0
+          }
+        },
+        "query_embedding": {
+          "calls": 0,
+          "input_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "output_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "wall_seconds": {
+            "sum": null,
+            "measured_n": 0
+          }
+        },
+        "summarization": {
+          "calls": 100,
+          "input_tokens": {
+            "sum": 286375,
+            "measured_n": 100
+          },
+          "output_tokens": {
+            "sum": 48441,
+            "measured_n": 100
+          },
+          "wall_seconds": {
+            "sum": 6463.804031994194,
+            "measured_n": 100
+          }
+        },
+        "answer": {
+          "calls": 2,
+          "input_tokens": {
+            "sum": 1214,
+            "measured_n": 2
+          },
+          "output_tokens": {
+            "sum": 16,
+            "measured_n": 2
+          },
+          "wall_seconds": {
+            "sum": 10.811427333042957,
+            "measured_n": 2
+          }
+        }
+      },
+      "cache_hits": 0
+    }
+  },
+  "paired_successful_questions": {
+    "question_ids": [
+      "e5ba910e_abs",
+      "0ddfec37_abs"
+    ],
+    "n": 2,
+    "approaches": {
+      "raw_history": {
+        "input_tokens": {
+          "mean": 6998,
+          "measured_n": 2
+        },
+        "output_tokens": {
+          "mean": 8,
+          "measured_n": 2
+        },
+        "answer_seconds": {
+          "mean": 46.232221125043,
+          "measured_n": 2
+        },
+        "preparation_seconds": {
+          "mean": 0.08085572946583852,
+          "measured_n": 2
+        },
+        "total_seconds": {
+          "mean": 46.31312868749956,
+          "measured_n": 2
+        }
+      },
+      "vector_retrieval": {
+        "input_tokens": {
+          "mean": 2622,
+          "measured_n": 2
+        },
+        "output_tokens": {
+          "mean": 15.5,
+          "measured_n": 2
+        },
+        "answer_seconds": {
+          "mean": 17.973272208473645,
+          "measured_n": 2
+        },
+        "preparation_seconds": {
+          "mean": 18.133088604023214,
+          "measured_n": 2
+        },
+        "total_seconds": {
+          "mean": 36.106392416520976,
+          "measured_n": 2
+        }
+      },
+      "running_summary": {
+        "input_tokens": {
+          "mean": 607,
+          "measured_n": 2
+        },
+        "output_tokens": {
+          "mean": 8,
+          "measured_n": 2
+        },
+        "answer_seconds": {
+          "mean": 5.405743937473744,
+          "measured_n": 2
+        },
+        "preparation_seconds": {
+          "mean": 3232.324783937016,
+          "measured_n": 2
+        },
+        "total_seconds": {
+          "mean": 3237.730549041473,
+          "measured_n": 2
+        }
+      }
+    }
+  }
+}

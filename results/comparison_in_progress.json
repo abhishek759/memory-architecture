@@ -1,0 +1,102 @@
+{
+  "caution": "14-question exploratory pilot; ungraded answers are not accuracy results. Cached preparation costs are excluded from current-attempt totals; original costs remain in per-question memory metadata.",
+  "approaches": {
+    "raw_history": {
+      "expected": 14,
+      "saved": 14,
+      "successful": 14,
+      "status_counts": {
+        "ok": 14
+      },
+      "pending_ids": [],
+      "errors": {},
+      "accuracy": null,
+      "grading_status": "ungraded",
+      "measurements_successful_only": {
+        "input_tokens": {
+          "mean": 7059.785714285715,
+          "measured_n": 14
+        },
+        "output_tokens": {
+          "mean": 30.642857142857142,
+          "measured_n": 14
+        },
+        "answer_seconds": {
+          "mean": 61.01311229459576,
+          "measured_n": 14
+        },
+        "preparation_seconds": {
+          "mean": 0.1296933244198694,
+          "measured_n": 14
+        },
+        "total_seconds": {
+          "mean": 61.14285643748839,
+          "measured_n": 14
+        }
+      },
+      "current_attempt_costs": {
+        "index_embedding": {
+          "calls": 0,
+          "input_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "output_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "wall_seconds": {
+            "sum": null,
+            "measured_n": 0
+          }
+        },
+        "query_embedding": {
+          "calls": 0,
+          "input_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "output_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "wall_seconds": {
+            "sum": null,
+            "measured_n": 0
+          }
+        },
+        "summarization": {
+          "calls": 0,
+          "input_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "output_tokens": {
+            "sum": null,
+            "measured_n": 0
+          },
+          "wall_seconds": {
+            "sum": null,
+            "measured_n": 0
+          }
+        },
+        "answer": {
+          "calls": 14,
+          "input_tokens": {
+            "sum": 98837,
+            "measured_n": 14
+          },
+          "output_tokens": {
+            "sum": 429,
+            "measured_n": 14
+          },
+          "wall_seconds": {
+            "sum": 854.1821443750523,
+            "measured_n": 14
+          }
+        }
+      },
+      "cache_hits": 0
+    }
+  }
+}

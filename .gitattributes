@@ -1,0 +1,7 @@
+*.pdf binary
+*.docx binary
+*.png binary
+# Markdown uses trailing double spaces for explicit line breaks.
+*.md whitespace=-blank-at-eol
+# Preserve the pinned upstream source unchanged.
+vendor/** -whitespace

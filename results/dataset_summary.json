@@ -1,0 +1,15 @@
+{
+  "questions": 500,
+  "counts_by_reporting_group": {
+    "single-session-user": 64,
+    "abstention": 30,
+    "multi-session": 121,
+    "single-session-preference": 30,
+    "temporal-reasoning": 127,
+    "knowledge-update": 72,
+    "single-session-assistant": 56
+  },
+  "sessions_min": 38,
+  "sessions_mean": 47.734,
+  "sessions_max": 62
+}

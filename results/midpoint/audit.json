@@ -1,0 +1,150 @@
+{
+  "generated_at_utc": "2026-10-06T11:19:48.985601+00:00",
+  "reporting_period": "Weeks 1–7",
+  "dataset_questions": 500,
+  "dataset_checksum_verified": true,
+  "history_metadata_verified": true,
+  "pilot_questions": 14,
+  "inference_source_hash": "3d9f504b92898f669ba763b685d5f20c7672edfdd9c8fe1a279d2dfb29d1cb3b",
+  "note": "Checkpoint costs overlap completed-record costs; do not add them together. Lock state is a point-in-time observation. Literal evidence matching is not grading.",
+  "approaches": {
+    "raw_history": {
+      "manifest_verified": true,
+      "inference_source_matches": true,
+      "writer_active_at_check": false,
+      "status_by_id": {
+        "e5ba910e_abs": "ok",
+        "0ddfec37_abs": "ok",
+        "07741c44": "ok",
+        "6aeb4375": "ok",
+        "4bc144e2": "ok",
+        "3fe836c9": "ok",
+        "28bcfaac": "ok",
+        "e3fc4d6e": "ok",
+        "09d032c9": "ok",
+        "95228167": "ok",
+        "36580ce8": "ok",
+        "caf9ead2": "ok",
+        "0db4c65d": "ok",
+        "0bc8ad93": "ok"
+      },
+      "status_counts": {
+        "ok": 14
+      },
+      "successful": 14,
+      "expected": 14,
+      "summary_checkpoints": {}
+    },
+    "vector_retrieval": {
+      "manifest_verified": true,
+      "inference_source_matches": true,
+      "writer_active_at_check": false,
+      "status_by_id": {
+        "e5ba910e_abs": "ok",
+        "0ddfec37_abs": "ok",
+        "07741c44": "ok",
+        "6aeb4375": "ok",
+        "4bc144e2": "ok",
+        "3fe836c9": "ok",
+        "28bcfaac": "ok",
+        "e3fc4d6e": "ok",
+        "09d032c9": "ok",
+        "95228167": "ok",
+        "36580ce8": "ok",
+        "caf9ead2": "ok",
+        "0db4c65d": "ok",
+        "0bc8ad93": "ok"
+      },
+      "status_counts": {
+        "ok": 14
+      },
+      "successful": 14,
+      "expected": 14,
+      "summary_checkpoints": {}
+    },
+    "running_summary": {
+      "manifest_verified": true,
+      "inference_source_matches": true,
+      "writer_active_at_check": false,
+      "status_by_id": {
+        "e5ba910e_abs": "ok",
+        "0ddfec37_abs": "ok",
+        "07741c44": "unfinished",
+        "6aeb4375": "pending",
+        "4bc144e2": "pending",
+        "3fe836c9": "pending",
+        "28bcfaac": "pending",
+        "e3fc4d6e": "pending",
+        "09d032c9": "pending",
+        "95228167": "pending",
+        "36580ce8": "pending",
+        "caf9ead2": "pending",
+        "0db4c65d": "pending",
+        "0bc8ad93": "pending"
+      },
+      "status_counts": {
+        "ok": 2,
+        "unfinished": 1,
+        "pending": 11
+      },
+      "successful": 2,
+      "expected": 14,
+      "summary_checkpoints": {
+        "e5ba910e_abs": {
+          "cache_key": "bf53d33b5f502ef2530b17ae2df45eba30693f71e12e72b36f38c53839fffa5a",
+          "completed_updates": 49,
+          "total_updates": 49,
+          "calls": 49,
+          "input_tokens": {
+            "sum": 143134,
+            "measured_n": 49
+          },
+          "output_tokens": {
+            "sum": 24385,
+            "measured_n": 49
+          },
+          "wall_seconds": {
+            "sum": 2832.488583662198,
+            "measured_n": 49
+          }
+        },
+        "0ddfec37_abs": {
+          "cache_key": "cb7d22a885de9d7b2509d190e4ef2e10c0f37752ade5cae7865fe0fd8cfb4228",
+          "completed_updates": 51,
+          "total_updates": 51,
+          "calls": 51,
+          "input_tokens": {
+            "sum": 143241,
+            "measured_n": 51
+          },
+          "output_tokens": {
+            "sum": 24056,
+            "measured_n": 51
+          },
+          "wall_seconds": {
+            "sum": 3631.315448331996,
+            "measured_n": 51
+          }
+        },
+        "07741c44": {
+          "cache_key": "9daa14579b6b8ca15f7d16d2145e4e69fb9fb338a55729ccda6a7ccb020b1af5",
+          "completed_updates": 28,
+          "total_updates": 55,
+          "calls": 28,
+          "input_tokens": {
+            "sum": 72027,
+            "measured_n": 28
+          },
+          "output_tokens": {
+            "sum": 14197,
+            "measured_n": 28
+          },
+          "wall_seconds": {
+            "sum": 1552.1935677916044,
+            "measured_n": 28
+          }
+        }
+      }
+    }
+  }
+}

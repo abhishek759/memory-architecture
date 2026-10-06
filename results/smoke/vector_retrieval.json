@@ -1,0 +1,111 @@
+{
+  "question_id": "synthetic-smoke",
+  "question_type": "knowledge-update",
+  "category": "knowledge-update",
+  "approach": "vector_retrieval",
+  "model": "llama3.1:8b",
+  "identity": {
+    "runtime": "0.34.0",
+    "nomic-embed-text": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+    "llama3.1:8b": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e"
+  },
+  "config_hash": "8a44bbc6471d807e39bd1df8666d10f8f3f95bd49996eb1d2a19e6dd213fdc81",
+  "status": "ok",
+  "prediction": "Paris.",
+  "input_tokens": 153,
+  "output_tokens": 3,
+  "answer_seconds": 0.6720453329617158,
+  "preparation_seconds": 15.975162375019863,
+  "memory": {
+    "cache_hit": false,
+    "cache_key": "50c3023298fd73fe45333190f98546e62127aad3d31fd77905928a96373414bb",
+    "chunks": 2,
+    "retrieved": [
+      {
+        "id": "0",
+        "distance": 0.29963088035583496,
+        "session_id": "s1",
+        "date": "2024/01/01 (Mon) 12:00",
+        "role": "user",
+        "fragment": 0,
+        "turn": 0
+      },
+      {
+        "id": "1",
+        "distance": 0.3289957046508789,
+        "fragment": 0,
+        "turn": 0,
+        "role": "user",
+        "session_id": "s2",
+        "date": "2024/01/02 (Tue) 12:00"
+      }
+    ],
+    "construction_cost": {
+      "calls": [
+        {
+          "phase": "index_embedding",
+          "model": "nomic-embed-text",
+          "input_tokens": 74,
+          "output_tokens": null,
+          "status": "ok",
+          "done_reason": null,
+          "prompt_eval_seconds": null,
+          "generation_seconds": null,
+          "load_seconds": 14.364450667,
+          "wall_seconds": 14.528151374892332
+        }
+      ],
+      "chunks": 2
+    }
+  },
+  "selection": {
+    "original_blocks": 2,
+    "retained_blocks": 2,
+    "dropped_blocks": 0,
+    "truncated": false,
+    "prompt_token_upper_bound": 510,
+    "fitting_method": "utf8_byte_bound"
+  },
+  "prompt": "Answer the question using only the supplied conversation memory.\nUse the session dates and question date when interpreting time.\nIf the memory does not support an answer, say that it does not\ncontain enough information. Give a concise answer.\n\nConversation memory: [2024/01/01 (Mon) 12:00 | session s1 | user | turn 0 fragment 0] I live in Rome.\n[2024/01/02 (Tue) 12:00 | session s2 | user | turn 0 fragment 0] I moved to Paris today.\nQuestion date: 2024/01/03 (Wed) 12:00\nQuestion: What city do I live in now?",
+  "done_reason": "stop",
+  "missing_measurements": [],
+  "total_seconds": 16.647216917015612,
+  "calls": [
+    {
+      "phase": "index_embedding",
+      "model": "nomic-embed-text",
+      "input_tokens": 74,
+      "output_tokens": null,
+      "status": "ok",
+      "done_reason": null,
+      "prompt_eval_seconds": null,
+      "generation_seconds": null,
+      "load_seconds": 14.364450667,
+      "wall_seconds": 14.528151374892332
+    },
+    {
+      "phase": "query_embedding",
+      "model": "nomic-embed-text",
+      "input_tokens": 14,
+      "output_tokens": null,
+      "status": "ok",
+      "done_reason": null,
+      "prompt_eval_seconds": null,
+      "generation_seconds": null,
+      "load_seconds": 0.003686209,
+      "wall_seconds": 0.017179957940243185
+    },
+    {
+      "phase": "answer",
+      "model": "llama3.1:8b",
+      "input_tokens": 153,
+      "output_tokens": 3,
+      "status": "ok",
+      "done_reason": "stop",
+      "prompt_eval_seconds": 0.537,
+      "generation_seconds": 0.127561,
+      "load_seconds": 0.001697708,
+      "wall_seconds": 0.6720367080997676
+    }
+  ]
+}

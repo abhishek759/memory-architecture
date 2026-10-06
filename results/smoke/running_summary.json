@@ -1,0 +1,103 @@
+{
+  "question_id": "synthetic-smoke",
+  "question_type": "knowledge-update",
+  "category": "knowledge-update",
+  "approach": "running_summary",
+  "model": "llama3.1:8b",
+  "identity": {
+    "runtime": "0.34.0",
+    "nomic-embed-text": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+    "llama3.1:8b": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e"
+  },
+  "config_hash": "8a44bbc6471d807e39bd1df8666d10f8f3f95bd49996eb1d2a19e6dd213fdc81",
+  "status": "ok",
+  "prediction": "Paris.",
+  "input_tokens": 103,
+  "output_tokens": 3,
+  "answer_seconds": 0.4737201250391081,
+  "preparation_seconds": 4.043785625020973,
+  "memory": {
+    "cache_key": "50186bdc65ea7c40367a271e007219cd5f683172ee73fae2cbbe83391c04c24b",
+    "cache_hit": false,
+    "resumed_batches": 0,
+    "summary_updates": 2,
+    "construction_cost": [
+      {
+        "phase": "summarization",
+        "model": "llama3.1:8b",
+        "input_tokens": 124,
+        "output_tokens": 36,
+        "status": "ok",
+        "done_reason": "stop",
+        "prompt_eval_seconds": 0.687283,
+        "generation_seconds": 1.865072,
+        "load_seconds": 0.000731792,
+        "wall_seconds": 2.562437167041935,
+        "clipped_chars": 0
+      },
+      {
+        "phase": "summarization",
+        "model": "llama3.1:8b",
+        "input_tokens": 160,
+        "output_tokens": 18,
+        "status": "ok",
+        "done_reason": "stop",
+        "prompt_eval_seconds": 0.520618,
+        "generation_seconds": 0.951694,
+        "load_seconds": 0.0006965,
+        "wall_seconds": 1.4787127499002963,
+        "clipped_chars": 0
+      }
+    ]
+  },
+  "selection": {
+    "original_blocks": 1,
+    "retained_blocks": 1,
+    "dropped_blocks": 0,
+    "truncated": false,
+    "prompt_token_upper_bound": 395,
+    "fitting_method": "utf8_byte_bound"
+  },
+  "prompt": "Answer the question using only the supplied conversation memory.\nUse the session dates and question date when interpreting time.\nIf the memory does not support an answer, say that it does not\ncontain enough information. Give a concise answer.\n\nConversation memory: **Updated Summary (2024/01/02)**\n\nUser lives in Paris.\nQuestion date: 2024/01/03 (Wed) 12:00\nQuestion: What city do I live in now?",
+  "done_reason": "stop",
+  "missing_measurements": [],
+  "total_seconds": 4.517511707963422,
+  "calls": [
+    {
+      "phase": "summarization",
+      "model": "llama3.1:8b",
+      "input_tokens": 124,
+      "output_tokens": 36,
+      "status": "ok",
+      "done_reason": "stop",
+      "prompt_eval_seconds": 0.687283,
+      "generation_seconds": 1.865072,
+      "load_seconds": 0.000731792,
+      "wall_seconds": 2.562437167041935
+    },
+    {
+      "phase": "summarization",
+      "model": "llama3.1:8b",
+      "input_tokens": 160,
+      "output_tokens": 18,
+      "status": "ok",
+      "done_reason": "stop",
+      "prompt_eval_seconds": 0.520618,
+      "generation_seconds": 0.951694,
+      "load_seconds": 0.0006965,
+      "wall_seconds": 1.4787127499002963
+    },
+    {
+      "phase": "answer",
+      "model": "llama3.1:8b",
+      "input_tokens": 103,
+      "output_tokens": 3,
+      "status": "ok",
+      "done_reason": "stop",
+      "prompt_eval_seconds": 0.354027,
+      "generation_seconds": 0.105271,
+      "load_seconds": 0.0007495,
+      "wall_seconds": 0.4737138329073787
+    }
+  ]
+}

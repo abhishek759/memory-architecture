@@ -1,0 +1,30 @@
+Midpoint validation — October 6, 2026
+Reporting period: Weeks 1–7
+
+Command: .venv/bin/python -m unittest discover -s tests -v
+Result: Ran 17 tests; OK (0 failures, 0 errors).
+Observed run duration: 0.618 seconds.
+
+The original 11 tests passed, together with six added midpoint tests:
+- paired metrics include only questions successful across all approaches;
+- disjoint successful sets produce no invented mean;
+- a running record without a held lock is reported as unfinished without mutation;
+- an actively held runner lock is detected;
+- checkpoint lookup matches the implemented memory key and excludes changed settings;
+- literal supporting-turn checks do not treat a session identifier alone as evidence.
+
+Offline audit also verified the dataset checksum, unique question IDs, pilot
+membership, history metadata/date parsing, saved-record provenance, and matching
+inference source fingerprints. See audit.json for current coverage.
+
+No new benchmark inference or official grading was performed during this update.
+Previously saved real-model smoke outputs remain in results/smoke/.
+
+Document/artifact validation:
+- PDF has five pages and all seven required midpoint sections.
+- PDF pages rendered for visual inspection; no table/chart clipping observed.
+- Word export contains the report text and embedded results figure.
+- Review worksheet has 42 unique (question_id, approach) pairs; all assessment
+  fields remain null, so it cannot be mistaken for completed grading.
+- Refreshed comparison contains two matched successful questions and null accuracy
+  for every approach.

@@ -1,0 +1,154 @@
+{
+  "research_question": "How do raw-history context, vector retrieval, and running summaries compare in answer accuracy, token usage, and latency on LongMemEval, and what failure modes does each approach produce?",
+  "approaches": {
+    "raw_history": {
+      "planned_behavior": "Keep the most recent complete turns within a fixed input token budget; drop oldest complete turns first when it doesn't fit.",
+      "hypothesis": "Older evidence needed for early-session questions may be removed by truncation."
+    },
+    "vector_retrieval": {
+      "planned_behavior": "Chunk history (per exchange or bounded turn group), embed chunks and the question, retrieve the top-k most similar chunks as memory.",
+      "hypothesis": "Semantically relevant-looking chunks may omit a session needed for the answer, especially for updates or multi-session reasoning."
+    },
+    "running_summary": {
+      "planned_behavior": "Process sessions chronologically; after each one, update a bounded summary without seeing the eventual test question.",
+      "hypothesis": "Compression may drop fine-grained details or retain facts that a later session invalidated."
+    }
+  },
+  "comparison_rules": {
+    "shared_across_all_approaches": [
+      "answering model + exact version/digest",
+      "answer instruction",
+      "generation settings",
+      "question set",
+      "maximum answer-context budget"
+    ],
+    "per_approach_allowed_to_vary": [
+      "actual formatted prompt length (record the difference)"
+    ],
+    "memory_store": "fresh per independent benchmark history",
+    "preserved_always": [
+      "speaker roles",
+      "session timestamps",
+      "question date"
+    ],
+    "summary_and_index_construction": "must not see the future test question",
+    "reference_answers_and_evidence_annotations": "evaluation only, never fed into the memory pipeline"
+  },
+  "model_and_runtime": {
+    "answering_model": "llama3.1:8b (Ollama)",
+    "exact_model_identifier": "llama3.1:8b, Ollama model ID 46e0c10c039e",
+    "runtime_version": "Ollama 0.34.0 (Homebrew), default settings: flash attention off, fp16 KV cache. (OLLAMA_FLASH_ATTENTION=1 + OLLAMA_KV_CACHE_TYPE=q8_0 were tried first on Homebrew's own suggestion and reverted after measurement - see runtime_settings_investigation below.)",
+    "hardware": "Apple M4, 16GB unified memory, macOS 26.6.2 (arm64)"
+  },
+  "generation_settings": {
+    "temperature": 0,
+    "seed": 42,
+    "output_token_limit": 512
+  },
+  "context_and_history_policy": {
+    "context_budget_tokens": 32768,
+    "context_budget_rationale": "Chosen for prompt-eval throughput, not just memory: flash-attention+q8_0 (Homebrew's suggested settings) allowed up to ~80K context 100%-GPU-resident but measured only ~37 tokens/sec prompt processing, making a single near-budget call take 20-30+ minutes - impractical across a pilot. Ollama's plain defaults (flash attention off, fp16 KV cache) measured ~107 tokens/sec (~3x faster) but fit less context before spilling off the GPU. 32,768 is comfortably 100% GPU-resident (9.1GB, ~6.9GB headroom) under the fast default settings, with a worst-case single prompt-eval around 5 minutes. Both paths are well under the paper's own ~115,000-token setting either way; decided with the user rather than unilaterally since it affects timing for the rest of the project.",
+    "runtime_settings_investigation": {
+      "date": "2026-09-15",
+      "method": "POST /api/generate with a trivial prompt at each num_ctx, then `ollama ps` for memory/CPU-GPU split; throughput measured from prompt_eval_count / prompt_eval_duration on an 8,194-token test prompt, cross-checked against llama-server's own logged 'tokens per second'",
+      "flash_attention_on_plus_q8_0_kv_cache": {
+        "prompt_eval_tokens_per_sec": 37,
+        "memory_by_context": [
+          {
+            "num_ctx": 4096,
+            "total_memory": "5.0 GB",
+            "processor": "100% GPU"
+          },
+          {
+            "num_ctx": 32768,
+            "total_memory": "7.1 GB",
+            "processor": "100% GPU"
+          },
+          {
+            "num_ctx": 65536,
+            "total_memory": "9.6 GB",
+            "processor": "100% GPU"
+          },
+          {
+            "num_ctx": 81920,
+            "total_memory": "10 GB",
+            "processor": "100% GPU"
+          },
+          {
+            "num_ctx": 114688,
+            "total_memory": "13 GB",
+            "processor": "18%/82% CPU/GPU"
+          }
+        ]
+      },
+      "default_settings_flash_attention_off_fp16_kv": {
+        "prompt_eval_tokens_per_sec": 107,
+        "memory_by_context": [
+          {
+            "num_ctx": 8192,
+            "total_memory": "5.8 GB",
+            "processor": "100% GPU"
+          },
+          {
+            "num_ctx": 16384,
+            "total_memory": "6.9 GB",
+            "processor": "100% GPU"
+          },
+          {
+            "num_ctx": 32768,
+            "total_memory": "9.1 GB",
+            "processor": "100% GPU"
+          },
+          {
+            "num_ctx": 49152,
+            "total_memory": "11 GB",
+            "processor": "100% GPU"
+          },
+          {
+            "num_ctx": 65536,
+            "total_memory": "14 GB",
+            "processor": "18%/82% CPU/GPU"
+          },
+          {
+            "num_ctx": 81920,
+            "total_memory": "16 GB",
+            "processor": "29%/71% CPU/GPU"
+          }
+        ]
+      }
+    },
+    "history_retention_rule": "drop oldest complete turn until formatted prompt + output_token_limit fits the context budget",
+    "fields_preserved_per_retained_turn": [
+      "date",
+      "session_id",
+      "role",
+      "message_text"
+    ],
+    "token_counting_method": "Current shared runner uses a conservative UTF-8 byte upper bound plus 256 template tokens when fitting; runtime prompt_eval_count and eval_count are recorded separately. This underuses the context ceiling and replaces the archived baseline calibration probes. Old smoke results are not reused."
+  },
+  "data_and_pilot_sample": {
+    "dataset_file": "longmemeval_s_cleaned.json",
+    "source": "https://huggingface.co/datasets/xiaowu0162/longmemeval-cleaned",
+    "revision_commit": "98d7416c24c778c2fee6e6f3006e7a073259d48f",
+    "content_length_bytes": 277383467,
+    "sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+    "download_initiated": "2026-09-15",
+    "download_completed": "2026-09-15",
+    "pilot_selection_method": "up to 2 examples per reporting group (question_type, with question_id ending in _abs split out as 'abstention'), random.Random(42), ~14 questions expected",
+    "pilot_ids_file": "results/pilot_ids.json"
+  },
+  "measurement_and_grading": {
+    "timing_boundary": "wall time from memory selection/retrieval start through complete answer; memory-construction time recorded separately",
+    "token_fields": "use the runtime's own returned token counts; mark unavailable values as missing, never as zero",
+    "grading_rubric_pilot": "Pinned official LongMemEval category-specific evaluator; no automated accuracy until a consistently graded complete set is imported. Manual spot checks are qualitative only.",
+    "grading_method_full_run": "TBD - LongMemEval repo's model-based evaluator (JSONL with question_id + hypothesis) for the larger run; audit a manual sample",
+    "evaluator_identity_version": null,
+    "evaluator_source_revision": "9e0b455f4ef0e2ab8f2e582289761153549043fc"
+  },
+  "implementation": {
+    "executable_config": "configs/pilot.json",
+    "runner": "src/run_experiment.py",
+    "date": "2026-09-30",
+    "legacy_baseline_archive": "notes/baseline_raw_history_legacy.py"
+  }
+}
