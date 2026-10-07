@@ -10,10 +10,26 @@ outside the current pilot milestone; the main experiment's size remains to be de
 
 The current deliverable is a cumulative midpoint report covering project inception
 through Week 7. See the [PDF report](reports/Midpoint_Project_Report.pdf),
-[editable Word report](reports/Midpoint_Project_Report.docx),
-[report source](reports/midpoint_project_report.md), and
-[current project plan](notes/project_plan.md). The earlier Weeks 5–6 planning note
-is superseded for the current assignment.
+[editable Word report](reports/Midpoint_Project_Report.docx), and
+[current project plan](notes/project_plan.md).
+
+## Repository contents
+
+| Location | Purpose |
+|---|---|
+| `src/`, `tests/`, `scripts/` | Experiment implementation, automated tests, and execution workflows |
+| `configs/`, `experiment_config.json` | Executable settings and research/provenance record |
+| `results/pilot/` | Saved predictions, prompts, model identities, and measurements |
+| `results/comparison.md` | Current pilot comparison |
+| `results/midpoint/` | Audit, review worksheet, validation record, and figures |
+| `reports/` | Midpoint report in PDF and editable Word formats |
+| `notes/`, `vendor/longmemeval/` | Research history, evaluation procedure, and pinned evaluator |
+
+Superseded drafts and duplicate result snapshots are available in Git history.
+The dataset, preparation caches, temporary files, and local report-authoring
+sources are excluded from the published repository.
+
+## Current pilot evidence
 
 At the October 6, 2026 audit, raw history and retrieval each have 14/14 successful
 predictions. Summary has 2/14 successful predictions, one unfinished question with
@@ -40,19 +56,10 @@ The review worksheet contains references and annotated supporting turns for
 post-inference evaluation only. Its blank assessment fields are not grades.
 Literal text presence does not detect paraphrases or prove evidence sufficiency.
 
-To rebuild the figures and PDF, install the optional report dependencies separately:
-
-```sh
-python3 -m venv /tmp/memory-study-report-env
-/tmp/memory-study-report-env/bin/python -m pip install -r requirements-report.txt
-/tmp/memory-study-report-env/bin/python scripts/build_midpoint_report.py
-# If pandoc is installed, add --docx to also regenerate the Word document.
-```
-
-The written report is an authored snapshot. Review its numerical claims when
-refreshing experiment results; the PDF builder renders the text and regenerates
-figures, but does not rewrite the narrative. Historical notes retain their original
-snapshots; use the refreshed audit for present coverage.
+The written reports and figures are evidence snapshots. Use the editable Word
+document for report revisions and check its claims against refreshed experiment
+results. Historical notes retain their original snapshots; use the current audit
+for present coverage.
 
 ## Setup
 
@@ -72,8 +79,9 @@ pins the direct dependency for other supported environments. Ollama must be
 reachable at the configured local URL. Use default flash-attention/KV-cache
 settings as documented in `experiment_config.json`; original measurements found
 these faster on this M4/16 GB machine. Do not run the three experiments concurrently
-when comparing latency. This project neither uploads benchmark data nor invokes
-paid inference. Chroma telemetry is disabled and embeddings are supplied locally.
+when comparing latency. Experiment inference stays local; the repository includes
+selected benchmark excerpts in saved prompts and review evidence, but excludes
+the complete dataset. Chroma telemetry is disabled and embeddings are supplied locally.
 
 The existing benchmark file is `data/longmemeval_s_cleaned.json`, revision
 `98d7416c24c778c2fee6e6f3006e7a073259d48f` from
@@ -141,8 +149,8 @@ usage stays null. Costs are tokens and seconds, not invented dollar estimates.
 
 ## Evidence and grading
 
-See [evaluation procedure](notes/evaluation.md), [development log](notes/development_log.md),
-and [progress summary](notes/progress_weeks_3_4.md). The comparison script exports
+See the [evaluation procedure](notes/evaluation.md), [development log](notes/development_log.md),
+and [current comparison](results/comparison.md). The comparison script exports
 inputs for the pinned official evaluator and can import consistently graded logs.
 No accuracy is claimed for ungraded answers. Synthetic smoke results under
 `results/smoke/` are validation only. September 15 results and the original

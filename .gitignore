@@ -9,3 +9,18 @@ __pycache__/
 results/cache/
 results/pilot/**/.lock
 ~$*.docx
+
+# Local report authoring files; publish the finished PDF and Word documents.
+reports/midpoint_project_report.md
+scripts/build_midpoint_report.py
+requirements-report.txt
+
+# Superseded drafts and snapshots retained locally and in Git history.
+notes/plan_weeks_5_6.md
+notes/progress_report_1_draft.md
+notes/progress_weeks_3_4.md
+results/comparison_console.txt
+results/comparison_in_progress.json
+results/comparison_in_progress.md
+results/summary_preparation_progress.json
+results/test_validation.txt

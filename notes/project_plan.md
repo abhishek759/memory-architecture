@@ -10,7 +10,8 @@ is the working assumption; the original proposal had a 14-week schedule.
 The midpoint report includes all seven required sections: project overview,
 work completed during Weeks 1–7, evidence, progress against the proposal,
 challenges and solutions, current status, and the plan for the second half.
-The supplied midpoint instructions do not independently specify a video deliverable.
+The supplied video instructions also require a 3–5 minute narrated demonstration
+of the actual implementation, settings, saved outputs, and next steps.
 
 ## Verified midpoint implementation
 
@@ -21,9 +22,9 @@ The supplied midpoint instructions do not independently specify a video delivera
 | Raw-history and retrieval pilots | 14/14 each | Provenance-checked question records |
 | Summary pilot | 2/14; third history at 28/55 updates | Checkpoints and audit; no held runner lock at audit |
 | Official grading | Integrated, not executed | Pinned evaluator and strict import/export code |
-| Cumulative evidence tooling | Implemented | Offline audit, matched-question statistics, blank review worksheet, figures/PDF builder |
+| Cumulative evidence tooling | Implemented | Offline audit, matched-question statistics, blank review worksheet, and saved figures |
 | Unit validation | 17 tests pass | results/midpoint/test_validation.txt |
-| Midpoint report | Written from current evidence | reports/midpoint_project_report.md and PDF |
+| Midpoint report | Written from current evidence | reports/Midpoint_Project_Report.pdf and .docx |
 
 The midpoint update preserves the existing inference source files and configuration
 so their fingerprints continue to match the saved pilot. It adds audit, evaluation
@@ -52,9 +53,10 @@ a prerequisite for this midpoint report.
 
 Use `sh scripts/refresh_midpoint.sh` to refresh offline evidence. It does not call a
 model. `src/audit_progress.py --review-output NEW_PATH.jsonl` creates a worksheet
-without overwriting prior reviews. Use `scripts/build_midpoint_report.py` with the
-optional report dependencies to rebuild figures and the PDF after checking the
-authored report's claims.
+without overwriting prior reviews. Reports and figures are saved evidence
+snapshots; use the editable Word report for revisions and verify its claims
+against the refreshed comparison. Optional report-authoring sources and old drafts
+are retained locally and in Git history rather than in the published file list.
 
 When ready to resume benchmark inference, start Ollama with the recorded runtime
 settings and run the existing `scripts/run_pilot.sh`; it retries unfinished records

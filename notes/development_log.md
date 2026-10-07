@@ -1,5 +1,16 @@
 # Development Log
 
+## Repository cleanup after midpoint publication
+
+Published code and evidence at https://github.com/abhishek759/memory-architecture.
+Removed superseded progress drafts, duplicate comparison snapshots, the old
+validation/progress snapshots, and optional report-authoring files from the tracked
+file list. They remain available in the initial commit and locally. Current PDF
+and Word reports, all pilot predictions and manifests, the current audit and
+comparison, tests, and evaluation provenance remain published. Updated README
+links and project-plan references accordingly. Historical entries below describe
+the files as they existed at the time.
+
 ## 2026-10-06 — Cumulative Weeks 1–7 midpoint update
 
 The current assignment covers the complete project history through Week 7,
