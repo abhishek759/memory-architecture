@@ -1,4 +1,4 @@
-"""Export a read-only midpoint audit and review worksheet; never perform inference."""
+"""Export a run audit and review worksheet without inference."""
 import argparse
 import fcntl
 import json
@@ -97,7 +97,7 @@ def main():
     parser.add_argument('--config', default='configs/pilot.json')
     parser.add_argument('--runs', nargs='+', type=Path, default=[ROOT / 'results/pilot' / a
         for a in ('raw_history', 'vector_retrieval', 'running_summary')])
-    parser.add_argument('--output', type=Path, default=ROOT / 'results/midpoint/audit.json')
+    parser.add_argument('--output', type=Path, default=ROOT / 'results/audit.json')
     parser.add_argument('--review-output', type=Path,
                         help='New JSONL worksheet path; refuses to overwrite an existing review')
     args = parser.parse_args()
@@ -119,7 +119,7 @@ def main():
         runs[manifest['approach']], worksheet = audit_run(directory, by_id, ids, source_hash)
         reviews.extend(worksheet)
     atomic_json(args.output, {'generated_at_utc': datetime.now(timezone.utc).isoformat(),
-        'reporting_period': 'Weeks 1–7', 'dataset_questions': len(by_id),
+        'dataset_questions': len(by_id),
         'dataset_checksum_verified': True, 'history_metadata_verified': True,
         'pilot_questions': len(ids), 'inference_source_hash': source_hash,
         'note': 'Checkpoint costs overlap completed-record costs; do not add them together. '

@@ -1,0 +1,20 @@
+{
+  "version": "raw-history-fitting-v2",
+  "base_config": "configs/pilot.json",
+  "base_config_sha256": "3813c61c6e5203e50534f159b1167c02c323245200fd9ba2594354b0c8a7e121",
+  "pilot_manifest": "results/pilot/raw_history/manifest.json",
+  "expected_identity": {
+    "runtime": "0.34.0",
+    "llama3.1:8b": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e"
+  },
+  "expected_inference_source_hash": "3d9f504b92898f669ba763b685d5f20c7672edfdd9c8fe1a279d2dfb29d1cb3b",
+  "output_dir": "results/progress_report_4/fitting_experiment",
+  "variants": [
+    "legacy_byte_bound",
+    "exact_token_count"
+  ],
+  "selection": "All 14 fixed pilot IDs are included in offline fitting; runtime IDs must be explicitly selected. Diagnostic cases are exploratory, not an independent held-out sample.",
+  "runtime_order": "Alternate legacy-first and exact-first by original pilot position; one request per variant; saved calls include load and prompt durations.",
+  "accuracy": "No automated correctness labels or architecture ranking; run outputs require separate rubric assessment.",
+  "budget": "context_tokens - output_tokens - template_margin_tokens; exact counter includes verified runtime template; same context/output allowance and answer instruction for both variants."
+}

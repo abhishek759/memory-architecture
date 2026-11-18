@@ -53,7 +53,7 @@ def main():
         'An interrupted question can have checkpointed work not yet represented in its final record.',
         '', 'The conservative fitting rule substantially underuses the 32K context ceiling. This is',
         'a pilot of these configured implementations, not a claim about each architecture’s best',
-        'possible performance. See `notes/manual_review.md` for qualitative examples.']
+        'possible performance. Use `src/review_pilot.py` to export a review worksheet.']
     args.output.write_text('\n'.join(lines) + '\n')
 
 if __name__ == '__main__': main()

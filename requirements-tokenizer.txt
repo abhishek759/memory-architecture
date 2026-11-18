@@ -1,0 +1,2 @@
+# Optional exact token counting and paired fitting experiments.
+tokenizers==0.23.2
